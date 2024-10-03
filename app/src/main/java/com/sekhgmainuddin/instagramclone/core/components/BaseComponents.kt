@@ -1,8 +1,11 @@
 package com.sekhgmainuddin.instagramclone.core.components
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -13,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sekhgmainuddin.instagramclone.core.styles.app_texts.AppTextBold14
@@ -20,24 +24,25 @@ import com.sekhgmainuddin.instagramclone.core.styles.app_texts.AppTextRegular14
 import com.sekhgmainuddin.instagramclone.core.styles.app_texts.AppTextStyle
 import com.sekhgmainuddin.instagramclone.core.styles.theme.AppColors
 
+@Preview(
+    showBackground = true,
+    backgroundColor = 0xFFFFFFFF,
+)
 @Composable
 fun AppTextField(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier.padding(20.dp),
     label: String = "Hello",
-    text: TextFieldValue?,
-    onValueChange: (TextFieldValue) -> Unit
+    text: TextFieldValue? = null,
+    onValueChange: (TextFieldValue) -> Unit = {}
 ) {
     TextField(
         modifier = modifier
+            .fillMaxWidth()
             .border(
                 width = 1.dp,
                 color = AppColors.TextFieldBorderColor,
                 shape = RoundedCornerShape(6.dp)
-            )
-            .height(
-                50.dp,
-            )
-            .fillMaxWidth(),
+            ),
         value = text ?: TextFieldValue(""),
         onValueChange = onValueChange,
         label = { AppTextRegular14(text = label) },

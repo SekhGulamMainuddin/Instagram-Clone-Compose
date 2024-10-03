@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
@@ -19,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.buildAnnotatedString
@@ -30,7 +32,6 @@ import com.sekhgmainuddin.instagramclone.R
 import com.sekhgmainuddin.instagramclone.core.components.AppTextField
 import com.sekhgmainuddin.instagramclone.core.components.PrimaryButton
 import com.sekhgmainuddin.instagramclone.core.styles.app_texts.AppTextBold12
-import com.sekhgmainuddin.instagramclone.core.styles.app_texts.AppTextExtraBold14
 import com.sekhgmainuddin.instagramclone.core.styles.app_texts.AppTextStyle
 import com.sekhgmainuddin.instagramclone.core.styles.theme.AppColors
 import com.sekhgmainuddin.instagramclone.features.authentication.presentation.components.OrSeparator
@@ -38,7 +39,7 @@ import com.sekhgmainuddin.instagramclone.features.authentication.presentation.co
 
 @Preview
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
+fun LoginScreen() {
     var userName by remember { mutableStateOf(TextFieldValue()) }
     var password by remember { mutableStateOf(TextFieldValue()) }
     val signUpText = buildAnnotatedString {
@@ -81,7 +82,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
         }
     ) {
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxSize()
                 .padding(it.calculateTopPadding())
                 .padding(horizontal = 20.dp),
@@ -91,14 +92,15 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             Image(
                 painter = painterResource(id = R.drawable.instagram_text_image),
                 contentDescription = "Instagram Logo",
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.width(230.dp),
+                contentScale = ContentScale.FillWidth
             )
             AppTextField(
                 text = userName,
                 onValueChange = { text ->
                     userName = text
                 },
-                label = stringResource(R.string.username_label),
+                label = stringResource(R.string.phone_username_or_email_label),
                 modifier = Modifier.padding(vertical = 20.dp)
             )
             PasswordField(
@@ -127,7 +129,9 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 text = stringResource(R.string.log_in),
                 onClick = {}
             )
-            OrSeparator()
+            OrSeparator(
+                modifier = Modifier.padding(top = 35.dp, bottom = 25.dp)
+            )
 
             TextButton(onClick = {}) {
                 Row(

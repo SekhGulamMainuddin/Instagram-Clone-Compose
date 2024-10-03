@@ -94,8 +94,7 @@ fun PasswordField(
 @Composable
 fun OrSeparator(modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier
-            .padding(top = 35.dp, bottom = 25.dp),
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
     ) {
         HorizontalDivider(

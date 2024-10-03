@@ -1,7 +1,6 @@
 package com.sekhgmainuddin.instagramclone.features.authentication.presentation.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -33,14 +31,14 @@ import com.sekhgmainuddin.instagramclone.features.authentication.presentation.co
 
 @Preview
 @Composable
-fun ForgotPasswordScreen(modifier: Modifier = Modifier) {
+fun ForgotPasswordScreen() {
     val emailPhone = remember {
         mutableStateOf(TextFieldValue())
     }
 
     Scaffold {
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .padding(it)
                 .padding(horizontal = 20.dp)
                 .fillMaxSize(),
@@ -70,7 +68,7 @@ fun ForgotPasswordScreen(modifier: Modifier = Modifier) {
                 onValueChange = { value ->
                     emailPhone.value = value
                 },
-                label = stringResource(R.string.username_label),
+                label = stringResource(R.string.phone_username_or_email_label),
             )
 
             PrimaryButton(
@@ -82,9 +80,7 @@ fun ForgotPasswordScreen(modifier: Modifier = Modifier) {
             )
 
             OrSeparator(
-                modifier = Modifier.padding(
-                    bottom = 20.dp,
-                )
+                modifier = Modifier.padding(top = 35.dp, bottom = 45.dp)
             )
 
             TextButton(
