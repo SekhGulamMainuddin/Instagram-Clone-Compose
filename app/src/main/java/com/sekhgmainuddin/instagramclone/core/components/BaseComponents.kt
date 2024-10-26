@@ -30,7 +30,7 @@ import com.sekhgmainuddin.instagramclone.core.styles.theme.AppColors
 )
 @Composable
 fun AppTextField(
-    modifier: Modifier = Modifier.padding(20.dp),
+    modifier: Modifier = Modifier,
     label: String = "Hello",
     text: TextFieldValue? = null,
     onValueChange: (TextFieldValue) -> Unit = {}
